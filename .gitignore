@@ -1,0 +1,40 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (si vous utilisez npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Fichiers temporaires
+*.tmp
+*.temp
+.cache/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Fichiers de configuration locaux
+.env
+.env.local
+.env.*.local
+
+# Dossiers de build
+dist/
+build/
+
+# Fichiers de test
+coverage/
+.nyc_output/
+

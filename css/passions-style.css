@@ -1,0 +1,175 @@
+.passions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.passion-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.passion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.passion-header {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.passion-icon {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.passion-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+
+.passion-body {
+    padding: var(--spacing-lg);
+}
+
+.passion-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+
+.qualities-grid {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.quality-card {
+    background: var(--bg-tertiary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--secondary-color);
+    transition: all var(--transition-normal);
+      text-align: left;            
+  width: 100%;
+  max-width: 420px;
+}
+
+.quality-card:hover {
+    transform: translateX(10px);
+    border-left-color: var(--accent-color);
+}
+
+.quality-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+}
+
+.quality-list {
+    list-style: none;
+    padding: 0;
+}
+
+.quality-list li {
+    color: var(--text-secondary);
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.quality-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: 700;
+}
+
+.goals-section {
+    background: var(--bg-tertiary);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-2xl) 0;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+}
+
+.goal-item {
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.goal-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.goal-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.goal-text {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.values-section {
+    margin: var(--spacing-2xl) 0;
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.value-badge {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+}
+
+.value-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .passions-grid,
+    .qualities-grid,
+    .goals-grid,
+    .values-list {
+        grid-template-columns: 1fr;
+    }
+}
+

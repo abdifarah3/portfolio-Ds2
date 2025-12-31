@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Portfolio Personnel</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/index-style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header data-include="/partials/header.html"></header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-content">
+          <svg style="display: none">
+            <defs>
+              <filter id="invertFilter">
+                <feComponentTransfer>
+                  <feFuncR type="table" tableValues="1 0" />
+                  <feFuncG type="table" tableValues="1 0" />
+                  <feFuncB type="table" tableValues="1 0" />
+                </feComponentTransfer>
+              </filter>
+            </defs>
+          </svg>
+          <div class="hero-image">
+            <img
+              src="images/missing-picture-page-website-design-600nw-1552421075.webp"
+              alt="Photo de profil"
+            />
+          </div>
+
+          <div class="hero-title">
+            <span class="hero-hello-normal" id="hello-type">hello,</span>
+            <span class="hero-hello-inverted">hello,</span>
+
+            <span class="hero-name-normal" id="name-type">I'm Abdi Farah</span>
+            <span class="hero-name-inverted">I'm Abdi Farah</span>
+          </div>
+
+          <div
+            class="hero-filter-overlay"
+            style="filter: url(#invertFilter)"
+          ></div>
+          <div class="hero-text">
+            <p class="hero-subtitle">
+              Étudiante en ingénierie informatique, passionnée par le
+              développement web et le graphic design. Découvrez mon parcours,
+              mes compétences et mes projets concrets.
+            </p>
+            <div class="hero-buttons">
+              <a href="pages/competences.html" class="btn btn-primary"
+                >Découvrir mes compétences</a
+              >
+              <a href="pages/contact.html" class="btn btn-secondary"
+                >Me contacter</a
+              >
+            </div>
+            <div class="game-button">
+              <a href="pages/jeu-reduction.html" class="btn btn-primary">
+                Jouer et gagner
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>À propos de moi</h2>
+        <div class="about-content">
+          <p>
+            Je suis une étudiante en ingénierie informatique, passionnée par le
+            développement web et le graphic design. À travers ce portfolio, vous
+            découvrirez mon parcours académique, mes compétences techniques, mes
+            expériences professionnelles ainsi que les projets qui reflètent ma
+            créativité et ma rigueur.
+          </p>
+          <p>
+            Mon objectif est de concevoir des interfaces modernes, intuitives et
+            accessibles, en combinant une base technique solide avec une
+            sensibilité visuelle. Ce site rassemble mes réalisations, mes
+            centres d’intérêt et ma vision du métier d’ingénieur.
+          </p>
+        </div>
+      </section>
+      <section class="testimonial-wrapper">
+        <div class="testimonial-section">
+          <h3>Mon Parcours</h3>
+          <div class="testimonial-content">
+            <p>
+              Mon parcours en informatique a commencé avec une passion pour la
+              technologie et la résolution de problèmes. Depuis le lycée, j'ai
+              toujours été fascinée par la façon dont les ordinateurs
+              fonctionnent et comment on peut créer des solutions innovantes.
+            </p>
+            <div class="highlight-box">
+              <strong>Point clé:</strong> Mon objectif est de devenir une
+              développeuse web compétente et créative, capable de créer des
+              applications modernes et performantes.
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-section">
+          <h3>Mes Apprentissages</h3>
+          <div class="testimonial-content">
+            <p>
+              À travers mes études et mes expériences, j'ai appris bien plus que
+              des compétences techniques. J'ai développé une mentalité de
+              résolution de problèmes et une capacité à apprendre rapidement.
+            </p>
+            <ul class="points-list">
+              <li>Maîtrise des technologies web modernes</li>
+              <li>Travail en équipe et collaboration</li>
+              <li>Gestion de projet et organisation</li>
+              <li>Pensée critique et créativité</li>
+            </ul>
+          </div>
+        </div>
+        <div class="testimonial-section">
+          <h3>Mes Objectifs</h3>
+          <div class="testimonial-content">
+            <p>
+              Je vise à continuer mon développement professionnel et personnel.
+              Mes objectifs à court et long terme sont clairs et ambitieux.
+            </p>
+            <div class="rating-section">
+              <div class="rating-item">
+                <div class="rating-label">Compétences Techniques</div>
+                <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                <div class="rating-value">5/5</div>
+              </div>
+              <div class="rating-item">
+                <div class="rating-label">Travail en Équipe</div>
+                <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                <div class="rating-value">5/5</div>
+              </div>
+              <div class="rating-item">
+                <div class="rating-label">Créativité</div>
+                <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                <div class="rating-value">5/5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights-section">
+        <h2>Points forts</h2>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon">🎓</div>
+            <h3>Formation</h3>
+            <p>Parcours académique solide en ingénierie informatique.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">💻</div>
+            <h3>Compétences techniques</h3>
+            <p>
+              Maîtrise de plusieurs langages, frameworks web et outils de
+              développement.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🎨</div>
+            <h3>Design & UI</h3>
+            <p>
+              Sens du détail en graphic design et création d’interfaces
+              modernes.
+            </p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>
+              Esprit d’équipe, communication claire et capacité d’adaptation.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="quote-section">
+        La passion et la persévérance sont les clés du succès. Je suis
+        déterminée à atteindre mes objectifs et à créer un impact positif.
+      </section>
+
+      <section class="conclusion-section">
+        <h3>Conclusion</h3>
+        <p class="conclusion-text">
+          Ce portfolio représente mon engagement envers l'excellence et mon
+          désir d'apprendre et de grandir. Je suis enthousiaste à l'idée de
+          nouvelles opportunités et de défis qui m'aideront à développer mes
+          compétences et à atteindre mes objectifs professionnels.
+        </p>
+      </section>
+      <section class="social-section">
+        <h2>Suivez-moi</h2>
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/abdi-farah-77b708340/"
+            title="LinkedIn"
+            aria-label="Profil LinkedIn"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/abdifarah3"
+            title="GitHub"
+            aria-label="Profil GitHub"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="https://x.com/AbdiFar06049598"
+            title="Twitter"
+            aria-label="Profil Twitter"
+          >
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a
+            href="mailto:farah.abdi@iit.ens.tn"
+            title="Email"
+            aria-label="M’envoyer un email"
+          >
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer data-include="/partials/footer.html"></footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/hero-filter.js"></script>
+  </body>
+</html>

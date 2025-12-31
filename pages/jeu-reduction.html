@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeu Réduction - Jouer & Gagner</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/jeu-style.css" />
+  </head>
+  <body>
+    <header data-include="/partials/header.html"></header>
+    <main class="game-page">
+      <section class="game-intro">
+        <h1>Jouer & Gagner</h1>
+        <p>
+          Voici un petit jeu développé en <strong>JavaScript</strong>. Aidez-moi
+          à le tester et n’hésitez pas à me donner vos remarques.
+        </p>
+      </section>
+
+      <section class="game-info-block">
+        <h2>Touche les étoiles</h2>
+        <h3>Principe:</h3>
+        <p>
+          Des étoiles apparaissent aléatoirement dans la zone de jeu. Cliquez
+          dessus le plus vite possible pour marquer des points.
+          <strong
+            >Atteins un score de 55 points en 30 secondes pour gagner -10 % sur
+            ton projet.</strong
+          >
+        </p>
+      </section>
+
+      <section class="game-section">
+        <div class="game-top-bar">
+          <div class="stat-chip time" aria-live="off">
+            <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+            <span class="label">Temps :</span>
+            <strong><span id="time">30</span>s</strong>
+          </div>
+          <div class="stat-chip score" aria-live="off">
+            <i class="bi bi-stars" aria-hidden="true"></i>
+            <span class="label">Score :</span>
+            <strong><span id="score">0</span></strong>
+          </div>
+        </div>
+        <div
+          id="timerBar"
+          class="timer-bar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="30"
+          aria-valuenow="30"
+        >
+          <div class="timer-fill" id="timerFill" style="width: 100%"></div>
+        </div>
+
+        <div id="gameArea" class="game-area">
+          <!-- Overlay HOME (fond 1) -->
+          <div class="overlay overlay-home is-active" id="overlayHome">
+            <div class="overlay-center pop">
+              <h2 class="pixel-title">TOUCHE LES ÉTOILES</h2>
+
+              <p class="overlay-text">
+                <strong>55 points</strong> en <strong>30 secondes</strong> =
+                <strong>-10 %</strong>
+              </p>
+
+              <button
+                class="img-btn img-btn--start"
+                id="btnStart"
+                aria-label="Start"
+              ></button>
+            </div>
+          </div>
+
+          <!-- Overlay READY (fond 2) -->
+          <div class="overlay overlay-ready" id="overlayReady" hidden>
+            <div class="overlay-center pop">
+              
+
+              <div class="overlay-actions">
+                <button
+                  class="img-btn img-btn--yes"
+                  id="btnYes"
+                  aria-label="Yes"
+                ></button>
+                <button
+                  class="img-btn img-btn--no"
+                  id="btnNo"
+                  aria-label="No"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overlay END (retour fond 1 + replay/exit) -->
+          <div class="overlay overlay-end" id="overlayEnd" hidden>
+            <div class="overlay-center pop">
+              <h2 class="pixel-title" id="endTitle">GAME OVER</h2>
+              <div class="overlay-result" id="endResult"></div>
+
+              <div class="overlay-actions">
+                <button
+                  class="img-btn img-btn--replay"
+                  id="btnReplay"
+                  aria-label="Replay"
+                ></button>
+                <a
+                  href="../index.html"
+                  class="img-btn img-btn--exit"
+                  aria-label="Exit"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-feedback">
+        <h2><i class="bi bi-chat-dots" aria-hidden="true"></i> Vos remarques</h2>
+        <p>
+          N’hésitez pas à m’aider à améliorer ce jeu en partageant vos idées ou
+          remarques.
+        </p>
+        <form class="feedback-form" id="feedbackForm">
+          <label for="feedback">Votre message :</label>
+          <textarea
+            id="feedback"
+            name="feedback"
+            rows="4"
+            required
+            placeholder="Donnez votre avis sur le jeu..."
+          ></textarea>
+          <div class="feedback-actions">
+            <button type="submit" class="btn-send">
+              <i class="bi bi-send" aria-hidden="true"></i>
+              Envoyer
+            </button>
+          </div>
+          <!-- Tu pourras plus tard envoyer ça par mail / backend -->
+        </form>
+        <div id="feedbackSuccess" class="feedback-success" role="status" aria-live="polite" hidden>
+          <i class="bi bi-check-circle" aria-hidden="true"></i>
+          Message envoyé ! Merci pour votre retour.
+        </div>
+      </section>
+    </main>
+    <footer data-include="/partials/footer.html"></footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/jeu.js"></script>
+  </body>
+</html>

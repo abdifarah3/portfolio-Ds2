@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/contact-style.css" />
+  </head>
+  <body>
+    <!-- HEADER & NAVIGATION -->
+    <header data-include="/partials/header.html"></header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <section class="container">
+        <h1>Me Contacter</h1>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Informations de Contact</h3>
+
+            <div class="info-item">
+              <div class="info-label">📧 Email</div>
+              <div class="info-value">
+                <a href="mailto:contact@example.com">farah.abdi@iit.ens.tn</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">📱 Téléphone</div>
+              <div class="info-value">+216 94 900 620</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">📍 Localisation</div>
+              <div class="info-value">Tunisie, Sfax</div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">🔗 Réseaux Sociaux</div>
+              <div class="info-value">
+                <a href="https://www.linkedin.com/in/abdi-farah-77b708340/"
+                  >LinkedIn</a
+                >
+                | <a href="https://github.com/abdifarah3">GitHub</a> |
+                <a href="https://x.com/AbdiFar06049598">Twitter</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Formulaire de Contact</h3>
+            <form id="contactForm" enctype="multipart/form-data">
+              <!-- Notification de résultat -->
+              <div
+                id="formNotification"
+                class="notification"
+                style="display: none"
+              ></div>
+
+              <!-- Identité -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nom complet</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Votre nom et prénom"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email professionnel</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="exemple@domaine.com"
+                  />
+                </div>
+              </div>
+
+              <!-- Coordonnées et type de demande -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Téléphone (facultatif)</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+216 ..."
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="projectType">Type de demande</label>
+                  <select id="projectType" name="projectType" required>
+                    <option value="">Sélectionnez une option</option>
+                    <option value="stage">Stage / opportunité</option>
+                    <option value="projet-web">
+                      Projet de développement web
+                    </option>
+                    <option value="collaboration">
+                      Collaboration / freelance
+                    </option>
+                    <option value="autre">Autre demande</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Infos projet -->
+              <div class="form-group">
+                <label for="subject">Sujet</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  placeholder="Objet de votre message"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Détails du projet ou du besoin</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Décrivez votre besoin, objectifs, délais, contraintes..."
+                ></textarea>
+              </div>
+
+              <!-- Budget et site -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="budget">Budget / fourchette (facultatif)</label>
+                  <input
+                    type="text"
+                    id="budget"
+                    name="budget"
+                    placeholder="Ex : 500–1000 DT, à définir, ..."
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="clientWebsite"
+                    >Site web / portfolio (facultatif)</label
+                  >
+                  <input
+                    type="url"
+                    id="clientWebsite"
+                    name="clientWebsite"
+                    placeholder="https://..."
+                  />
+                </div>
+              </div>
+
+              <!-- Préférences de contact -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactPreference">Préférence de contact</label>
+                  <select id="contactPreference" name="contactPreference">
+                    <option value="email">Email</option>
+                    <option value="phone">Téléphone</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="aucune">Aucune préférence</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="deadline">Échéance souhaitée (facultatif)</label>
+                  <input type="date" id="deadline" name="deadline" />
+                </div>
+              </div>
+
+              <!-- Code promo -->
+              <div class="form-group">
+                <label for="promoCode">Code promo (facultatif)</label>
+                <input
+                  type="text"
+                  id="promoCode"
+                  name="promoCode"
+                  placeholder="Ex : JEU10"
+                  inputmode="text"
+                />
+                <small class="form-help">Si vous avez un code promo, saisissez-le ici.</small>
+              </div>
+
+              <!-- Fichiers -->
+              <div class="form-group">
+                <label for="attachments"
+                  >Joindre des fichiers (facultatif)</label
+                >
+                <input
+                  type="file"
+                  id="attachments"
+                  name="attachments"
+                  multiple
+                  accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp,.zip"
+                />
+                <small class="form-help">
+                  Vous pouvez joindre un cahier des charges, un PDF de
+                  présentation, des maquettes (PNG/JPG) ou un ZIP de ressources
+                  (max. 10 Mo par fichier).
+                </small>
+              </div>
+
+              <!-- Consentement -->
+              <div class="form-group form-group-inline">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="consent" name="consent" required />
+                  <span
+                    >J’accepte que mes informations soient utilisées pour être
+                    recontacté(e).</span
+                  >
+                </label>
+              </div>
+
+              <button type="submit" class="form-submit">
+                Envoyer ma demande
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer data-include="/partials/footer.html"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/contact.js"></script>
+  </body>
+</html>

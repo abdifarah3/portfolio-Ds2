@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizz - Portfolio</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/quizz-style.css" />
+  </head>
+  <body>
+    <!-- HEADER & NAVIGATION -->
+    <header data-include="/partials/header.html"></header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <section class="container quizz-section">
+        <div class="quizz-header">
+          <h1>Quizz Logique & Raisonnement</h1>
+          <p class="quizz-description">
+            Répondez à ces questions de logique pour tester votre raisonnement.
+            Vous verrez votre note et les réponses correctes après validation.
+          </p>
+        </div>
+
+        <div class="quizz-container">
+          <form id="quizzForm">
+            <!-- Q1 -->
+            <div class="question">
+              <span class="question-number">1</span>
+              <p>Suite : 2, 4, 8, 16, ? Quel est le nombre suivant ?</p>
+              <div class="options">
+                <label><input type="radio" name="q1" value="a" /> 20</label>
+                <label><input type="radio" name="q1" value="b" /> 24</label>
+                <label><input type="radio" name="q1" value="c" /> 32</label>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question">
+              <span class="question-number">2</span>
+              <p>
+                Un développeur corrige 5 bugs par jour. Combien de bugs
+                corrige‑t‑il en 4 jours s’il garde le même rythme ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q2" value="a" /> 10</label>
+                <label><input type="radio" name="q2" value="b" /> 15</label>
+                <label><input type="radio" name="q2" value="c" /> 20</label>
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question">
+              <span class="question-number">3</span>
+              <p>
+                Une page web met 6 secondes à charger. Après optimisation, le
+                temps est divisé par 3. Combien de temps met‑elle maintenant ?
+              </p>
+              <div class="options">
+                <label
+                  ><input type="radio" name="q3" value="a" /> 2 secondes</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="b" /> 3 secondes</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="c" /> 4 secondes</label
+                >
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question">
+              <span class="question-number">4</span>
+              <p>Suite : 1, 3, 6, 10, ? Quel est le nombre suivant ?</p>
+              <div class="options">
+                <label><input type="radio" name="q4" value="a" /> 12</label>
+                <label><input type="radio" name="q4" value="b" /> 15</label>
+                <label><input type="radio" name="q4" value="c" /> 16</label>
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question">
+              <span class="question-number">5</span>
+              <p>
+                Si aujourd’hui est mercredi et qu’un sprint dure 14 jours, quel
+                jour de la semaine se termine le sprint ?
+              </p>
+              <div class="options">
+                <label
+                  ><input type="radio" name="q5" value="a" /> Mercredi</label
+                >
+                <label><input type="radio" name="q5" value="b" /> Jeudi</label>
+                <label
+                  ><input type="radio" name="q5" value="c" /> Vendredi</label
+                >
+              </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question">
+              <span class="question-number">6</span>
+              <p>
+                Dans une équipe, chaque membre relit 2 pull requests par jour.
+                L’équipe compte 4 membres. Combien de pull requests sont relues
+                en 3 jours ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q6" value="a" /> 12</label>
+                <label><input type="radio" name="q6" value="b" /> 18</label>
+                <label><input type="radio" name="q6" value="c" /> 24</label>
+              </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question">
+              <span class="question-number">7</span>
+              <p>
+                Une tâche est estimée à 8 heures. Deux développeurs travaillent
+                dessus en parallèle avec la même efficacité. En combien de temps
+                peuvent‑ils terminer la tâche ensemble ?
+              </p>
+              <div class="options">
+                <label
+                  ><input type="radio" name="q7" value="a" /> 2 heures</label
+                >
+                <label
+                  ><input type="radio" name="q7" value="b" /> 4 heures</label
+                >
+                <label
+                  ><input type="radio" name="q7" value="c" /> 8 heures</label
+                >
+              </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question">
+              <span class="question-number">8</span>
+              <p>Suite : 5, 10, 20, 40, ? Quel est le nombre suivant ?</p>
+              <div class="options">
+                <label><input type="radio" name="q8" value="a" /> 45</label>
+                <label><input type="radio" name="q8" value="b" /> 60</label>
+                <label><input type="radio" name="q8" value="c" /> 80</label>
+              </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question">
+              <span class="question-number">9</span>
+              <p>
+                Un algorithme traite 120 enregistrements en 6 secondes. Combien
+                d’enregistrements traite‑t‑il en 1 seconde (à vitesse constante)
+                ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q9" value="a" /> 10</label>
+                <label><input type="radio" name="q9" value="b" /> 20</label>
+                <label><input type="radio" name="q9" value="c" /> 30</label>
+              </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question">
+              <span class="question-number">10</span>
+              <p>
+                Un mot de passe doit contenir exactement 4 chiffres. Combien de
+                combinaisons différentes sont possibles (de 0000 à 9999) ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q10" value="a" /> 100</label>
+                <label><input type="radio" name="q10" value="b" /> 1000</label>
+                <label><input type="radio" name="q10" value="c" /> 10000</label>
+              </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="question">
+              <span class="question-number">11</span>
+              <p>
+                Une fonction met 50 ms à s’exécuter. Après optimisation, elle
+                met 20 ms. De combien de millisecondes le temps est‑il réduit ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q11" value="a" /> 20 ms</label>
+                <label><input type="radio" name="q11" value="b" /> 30 ms</label>
+                <label><input type="radio" name="q11" value="c" /> 70 ms</label>
+              </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="question">
+              <span class="question-number">12</span>
+              <p>Suite : 3, 6, 9, 12, ? Quel est le nombre suivant ?</p>
+              <div class="options">
+                <label><input type="radio" name="q12" value="a" /> 14</label>
+                <label><input type="radio" name="q12" value="b" /> 15</label>
+                <label><input type="radio" name="q12" value="c" /> 18</label>
+              </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="question">
+              <span class="question-number">13</span>
+              <p>
+                Un tableau contient 5 éléments. On ajoute 3 éléments, puis on en
+                retire 2. Combien d’éléments reste‑t‑il ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q13" value="a" /> 5</label>
+                <label><input type="radio" name="q13" value="b" /> 6</label>
+                <label><input type="radio" name="q13" value="c" /> 8</label>
+              </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="question">
+              <span class="question-number">14</span>
+              <p>
+                Un développeur lit 12 pages de documentation en 30 minutes.
+                Combien de pages peut‑il lire en 1 heure au même rythme ?
+              </p>
+              <div class="options">
+                <label><input type="radio" name="q14" value="a" /> 18</label>
+                <label><input type="radio" name="q14" value="b" /> 24</label>
+                <label><input type="radio" name="q14" value="c" /> 30</label>
+              </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="question">
+              <span class="question-number">15</span>
+              <p>Suite : 1, 4, 9, 16, ? Quel est le nombre suivant ?</p>
+              <div class="options">
+                <label><input type="radio" name="q15" value="a" /> 20</label>
+                <label><input type="radio" name="q15" value="b" /> 25</label>
+                <label><input type="radio" name="q15" value="c" /> 36</label>
+              </div>
+            </div>
+
+            <div class="quizz-buttons">
+              <button type="submit" class="btn btn-primary">Soumettre</button>
+              <button type="reset" class="btn btn-secondary">
+                Réinitialiser
+              </button>
+            </div>
+
+            <div id="quizzResult" class="result" aria-live="polite"></div>
+            <div
+              id="quizzAnswers"
+              class="answers-list"
+              aria-live="polite"
+            ></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer data-include="/partials/footer.html"></footer>
+
+    <!-- SCRIPTS -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/quizz.js"></script>
+  </body>
+</html>
