@@ -270,3 +270,42 @@ console.log('Scripts généraux chargés avec succès !');
   }
 })();
 
+// ================================
+// Normalisation des liens du header/footer selon la page courante
+// ================================
+(function(){
+  function prefix() {
+    try { return /\/pages\//.test(location.pathname) ? '../' : ''; } catch { return ''; }
+  }
+  function fixHeaderLinks() {
+    const pref = prefix();
+    const root = document.querySelector('header');
+    if (!root) return;
+
+    // Liens
+    root.querySelectorAll('a[data-href]').forEach(a => {
+      const raw = a.getAttribute('data-href') || '';
+      if (/^(https?:|mailto:|#)/i.test(raw)) {
+        a.setAttribute('href', raw);
+      } else {
+        a.setAttribute('href', pref + raw);
+      }
+    });
+
+    // Images
+    root.querySelectorAll('img[data-src]').forEach(img => {
+      const raw = img.getAttribute('data-src') || '';
+      if (!raw) return;
+      img.setAttribute('src', pref + raw);
+    });
+  }
+
+  document.addEventListener('partials:loaded', fixHeaderLinks);
+  if (document.readyState !== 'loading') {
+    // Au cas où le header est déjà inséré (cache ou vitesse)
+    setTimeout(fixHeaderLinks, 0);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(fixHeaderLinks, 0));
+  }
+})();
+
