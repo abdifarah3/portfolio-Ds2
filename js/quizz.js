@@ -39,13 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let allAnswered = true;
     let firstUnanswered = null;
 
-    // Nettoyer les styles & explications précédentes
     form.querySelectorAll(".options label").forEach((label) => {
       label.classList.remove("answer-correct", "answer-incorrect");
     });
     form.querySelectorAll(".question-feedback").forEach((div) => div.remove());
 
-    // Vérifier si toutes les questions sont répondues
     for (const qName of Object.keys(answers)) {
       const chosen = form.querySelector(`input[name="${qName}"]:checked`);
       if (!chosen) {
@@ -66,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Corriger chaque question et afficher l'explication sous la question
     for (const [qName, data] of Object.entries(answers)) {
       const questionBlock = form
         .querySelector(`.question input[name="${qName}"]`)
@@ -79,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const correctLabel = correctInput ? correctInput.closest("label") : null;
       const chosenLabel = chosen ? chosen.closest("label") : null;
 
-      // Cocher la bonne réponse
       if (correctInput) correctInput.checked = true;
 
       let isCorrect = false;
@@ -93,14 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (correctLabel) correctLabel.classList.add("answer-correct");
       }
 
-      // Désactiver les options
       if (questionBlock) {
         questionBlock
           .querySelectorAll('input[type="radio"]')
           .forEach((input) => (input.disabled = true));
       }
 
-      // Créer un bloc d'explication sous la question
       if (questionBlock) {
         const feedback = document.createElement("div");
         feedback.className = "question-feedback";
@@ -119,16 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const percent = Math.round((score / total) * 100);
 
-    // Afficher un petit résumé dans le header du quiz
     const header = document.querySelector(".quizz-header .quizz-description");
     if (header) {
       header.textContent = `Score : ${score}/${total} (${percent} %)`;
     }
 
-    // Cacher les boutons d'origine
     buttonsContainer.style.display = "none";
 
-    // Créer le conteneur pour Refaire / Exit
     const actions = document.createElement("div");
     actions.className = "quizz-buttons";
     actions.innerHTML = `
@@ -137,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     form.appendChild(actions);
 
-    // Bouton Refaire
     const retryBtn = actions.querySelector("#retryQuiz");
     retryBtn.addEventListener("click", () => {
       form.reset();
@@ -149,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       form.querySelectorAll(".question-feedback").forEach((div) => div.remove());
 
-      // Remettre le texte d'introduction
       if (header) {
         header.textContent =
           "Répondez à ces questions de logique pour tester votre raisonnement. Vous verrez votre score et l'explication sous chaque question.";
@@ -158,8 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
       actions.remove();
       buttonsContainer.style.display = "flex";
     });
-
-    // Bouton Exit -> Accueil
     const exitBtn = actions.querySelector("#exitQuiz");
     exitBtn.addEventListener("click", () => {
       window.location.href = "../index.html";

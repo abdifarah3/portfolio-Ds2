@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const helloText = 'hello,';
   const nameText  = "I'm Abdi Farah";
-  const speed     = 100; // ms par lettre
+  const speed     = 100; 
 
-  // état initial
   helloNormal.textContent = '';
   nameNormal.textContent  = '';
   helloInv.style.visibility = 'hidden';
@@ -35,11 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
     step();
   }
 
-  // 1) taper "hello," à sa position actuelle
   typeLine(helloNormal, helloText, true, function () {
-    // 2) puis taper "I'm Abdi Farah" à sa position actuelle
     typeLine(nameNormal, nameText, true, function () {
-      // 3) à la fin, afficher les versions inversées, aux mêmes positions CSS
       helloInv.style.visibility = 'visible';
       nameInv.style.visibility  = 'visible';
       helloInv.textContent = helloText;
@@ -57,39 +53,29 @@ function applyPixelPerfectInversion() {
 
   if (!heroImage || !helloInverted || !nameInverted || !heroContent) return;
 
-  // Obtenir les rectangles de bounding
   const imageRect = heroImage.getBoundingClientRect();
   const helloRect = helloInverted.getBoundingClientRect();
   const nameRect = nameInverted.getBoundingClientRect();
 
-  // Calculer les positions relatives par rapport à chaque élément de texte
   function createClipPath(textRect, imgRect) {
-    // Calculer les coordonnées de l'image par rapport au texte
     const left = imgRect.left - textRect.left;
     const top = imgRect.top - textRect.top;
     const right = left + imgRect.width;
     const bottom = top + imgRect.height;
 
-    // Créer un polygon qui couvre uniquement la zone de l'image
     return `polygon(${left}px ${top}px, ${right}px ${top}px, ${right}px ${bottom}px, ${left}px ${bottom}px)`;
   }
 
-  // Appliquer le clip-path pour chaque élément
   helloInverted.style.clipPath = createClipPath(helloRect, imageRect);
   nameInverted.style.clipPath = createClipPath(nameRect, imageRect);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Appel initial
   applyPixelPerfectInversion();
-
-  // Appel après un délai pour s'assurer que tout est chargé
   setTimeout(applyPixelPerfectInversion, 100);
 });
 
-// Recalculer lors des changements
 window.addEventListener('resize', applyPixelPerfectInversion);
 window.addEventListener('scroll', applyPixelPerfectInversion);
 
-// Vérifier régulièrement (pour les animations)
 setInterval(applyPixelPerfectInversion, 30);

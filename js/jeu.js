@@ -5,18 +5,16 @@ const timerFill = document.getElementById('timerFill');
 const timerBar = document.getElementById('timerBar');
 
 let score = 0;
-const TOTAL_TIME = 30;           // remis à 30s (20 points en 30s)
-const STAR_LIFETIME_MS = 900;    // étoiles disparaissent vite (garde le rythme)
+const TOTAL_TIME = 30;           
+const STAR_LIFETIME_MS = 900;  
 let timeLeft = TOTAL_TIME;
 let timerInterval = null;
 let starTimeout = null;
-const TARGET_SCORE = 55;         // objectif ajusté
+const TARGET_SCORE = 55;      
 
-// ======================
 // Gestion des codes promo
-// ======================
 function genPromoCode(len = 8) {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // éviter I/O/1/0
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; 
   let out = '';
   for (let i = 0; i < len; i++) out += chars[Math.floor(Math.random() * chars.length)];
   return out;
@@ -141,7 +139,7 @@ function spawnStar() {
   star.classList.add('star');
 
   const areaRect = gameArea.getBoundingClientRect();
-  const size = 44; // réduire la taille pour rendre le clic moins facile (CSS synchronisé)
+  const size = 44; 
   const maxX = Math.max(0, areaRect.width - size);
   const maxY = Math.max(0, areaRect.height - size);
 
@@ -160,17 +158,14 @@ function spawnStar() {
     clearTimeout(starTimeout);
     spawnStar();
   };
-  // Incrémenter au survol (hover)
   star.addEventListener('pointerenter', onHit);
 
-  // Fallback pour appareils sans hover (mobile/tablette)
   try {
     if (window.matchMedia && window.matchMedia('(hover: none)').matches) {
       star.addEventListener('pointerdown', onHit, { passive: false });
       star.addEventListener('touchstart', onHit, { passive: false });
     }
   } catch (_) {
-    // en cas d'environnement sans matchMedia, aucun fallback
   }
 
   gameArea.appendChild(star);
@@ -185,13 +180,11 @@ function removeStar() {
   if (existing) existing.remove();
 }
 
-// Gestion du formulaire de remarques (feedback)
 try {
   const feedbackForm = document.getElementById('feedbackForm');
   const feedbackTextarea = document.getElementById('feedback');
   const feedbackSuccess = document.getElementById('feedbackSuccess');
   if (feedbackForm && feedbackTextarea && feedbackSuccess) {
-    // En cas de saisie, retirer un message de validité custom éventuel
     feedbackTextarea.addEventListener('input', () => {
       feedbackTextarea.setCustomValidity('');
     });
@@ -200,7 +193,6 @@ try {
       e.preventDefault();
       const msg = (feedbackTextarea.value || '').trim();
       if (!msg) {
-        // Validation native + petite indication visuelle si vide
         feedbackTextarea.setCustomValidity('Veuillez saisir un message.');
         feedbackTextarea.reportValidity();
         feedbackTextarea.focus();
@@ -209,7 +201,6 @@ try {
         return;
       }
       feedbackTextarea.setCustomValidity('');
-      // Simuler l'envoi et afficher un message de succes
       feedbackTextarea.value = '';
       feedbackSuccess.hidden = false;
       feedbackSuccess.classList.add('pop');

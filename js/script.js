@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Site chargé avec succès !');
-    
-    // Animation au chargement
     const sections = document.querySelectorAll('section');
     sections.forEach((section, index) => {
         section.style.opacity = '0';
@@ -216,9 +214,7 @@ function toggleClass(elementId, className) {
 
 console.log('Scripts généraux chargés avec succès !');
 
-// ================================
 // Chargement de partials (header/footer)
-// ================================
 (function () {
   async function fetchFirstWorking(urlCandidates) {
     for (const u of urlCandidates) {
@@ -226,7 +222,6 @@ console.log('Scripts généraux chargés avec succès !');
         const res = await fetch(u, { cache: 'no-cache' });
         if (res.ok) return await res.text();
       } catch (e) {
-        // essayer la suivante
       }
     }
     throw new Error('Aucune URL valide parmi: ' + urlCandidates.join(', '));
@@ -241,7 +236,6 @@ console.log('Scripts généraux chargés avec succès !');
         const src = el.getAttribute('data-include');
         const rel = src.replace(/^\//, '');
         const candidates = [];
-        // Priorité: chemin tel quel, puis variantes communes
         candidates.push(src);
         if (!src.startsWith('/')) candidates.push('/' + src);
         candidates.push(rel);
@@ -251,8 +245,6 @@ console.log('Scripts généraux chargés avec succès !');
         el.innerHTML = html;
       })
     );
-
-    // Ré-initialiser les comportements dépendants du header inséré
     try {
       if (typeof initializeTheme === 'function') initializeTheme();
       if (typeof initializeHamburger === 'function') initializeHamburger();
@@ -270,9 +262,8 @@ console.log('Scripts généraux chargés avec succès !');
   }
 })();
 
-// ================================
-// Normalisation des liens du header/footer selon la page courante
-// ================================
+// Normalisation des liens du header selon la page courante
+
 (function(){
   function prefix() {
     try { return /\/pages\//.test(location.pathname) ? '../' : ''; } catch { return ''; }
@@ -282,7 +273,6 @@ console.log('Scripts généraux chargés avec succès !');
     const root = document.querySelector('header');
     if (!root) return;
 
-    // Liens
     root.querySelectorAll('a[data-href]').forEach(a => {
       const raw = a.getAttribute('data-href') || '';
       if (/^(https?:|mailto:|#)/i.test(raw)) {
@@ -292,7 +282,6 @@ console.log('Scripts généraux chargés avec succès !');
       }
     });
 
-    // Images
     root.querySelectorAll('img[data-src]').forEach(img => {
       const raw = img.getAttribute('data-src') || '';
       if (!raw) return;
@@ -302,10 +291,11 @@ console.log('Scripts généraux chargés avec succès !');
 
   document.addEventListener('partials:loaded', fixHeaderLinks);
   if (document.readyState !== 'loading') {
-    // Au cas où le header est déjà inséré (cache ou vitesse)
     setTimeout(fixHeaderLinks, 0);
   } else {
     document.addEventListener('DOMContentLoaded', () => setTimeout(fixHeaderLinks, 0));
   }
 })();
+
+
 

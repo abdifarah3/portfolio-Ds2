@@ -1,19 +1,12 @@
-/* ============================================
-   GESTION DU THÈME (CLAIR/SOMBRE)
-   ============================================ */
-
 // Initialiser le thème au chargement
 document.addEventListener('DOMContentLoaded', function() {
     initializeTheme();
     initializeHamburger();
 });
 
-// Initialiser le thème
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
-
-    // Ajouter l'event listener au checkbox
     const themeSwitch = document.querySelector('.theme-switch__input');
     if (themeSwitch) {
         themeSwitch.addEventListener('change', function() {
@@ -23,14 +16,12 @@ function initializeTheme() {
     }
 }
 
-// Basculer le thème
 function toggleTheme() {
     const currentTheme = localStorage.getItem('theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
 }
 
-// Définir le thème
 function setTheme(theme) {
     const html = document.documentElement;
     const themeSwitch = document.querySelector('.theme-switch__input');
@@ -46,10 +37,7 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
 }
 
-/* ============================================
-   GESTION DU MENU HAMBURGER
-   ============================================ */
-
+//GESTION DU MENU HAMBURGER
 function initializeHamburger() {
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
@@ -61,7 +49,6 @@ function initializeHamburger() {
         nav.classList.toggle('active');
     });
     
-    // Fermer le menu quand on clique sur un lien
     const navLinks = nav.querySelectorAll('a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -70,7 +57,6 @@ function initializeHamburger() {
         });
     });
     
-    // Fermer le menu quand on clique en dehors
     document.addEventListener('click', function(event) {
         const isClickInsideNav = nav.contains(event.target);
         const isClickInsideHamburger = hamburger.contains(event.target);
@@ -81,10 +67,6 @@ function initializeHamburger() {
         }
     });
 }
-
-/* ============================================
-   ANIMATIONS AU CHARGEMENT
-   ============================================ */
 
 // Animer les sections au scroll
 function observeSections() {
@@ -106,18 +88,12 @@ function observeSections() {
     });
 }
 
-// Appeler la fonction au chargement
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', observeSections);
 } else {
     observeSections();
 }
 
-/* ============================================
-   UTILITAIRES
-   ============================================ */
-
-// Smooth scroll pour les ancres
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
